@@ -7,6 +7,7 @@ import (
 	"ejercicio-poo/creative-projects-management-system/usecases/commands/assign-member-to-project"
 	"ejercicio-poo/creative-projects-management-system/usecases/commands/create-project"
 	"ejercicio-poo/creative-projects-management-system/usecases/commands/delete-project"
+	generate_project_status_report "ejercicio-poo/creative-projects-management-system/usecases/commands/generate-project-status-report"
 	"ejercicio-poo/creative-projects-management-system/usecases/commands/update/project-description"
 	"ejercicio-poo/creative-projects-management-system/usecases/commands/update/project-name"
 	"ejercicio-poo/creative-projects-management-system/usecases/queries/get-projects"
@@ -46,6 +47,8 @@ func main() {
 		case 6:
 			delete_project.Run(scanner)
 		case 7:
+			generate_project_status_report.Run(scanner)
+		case 0:
 			fmt.Println("See you later")
 			common.Sleep(constants.OneSecond)
 			os.Exit(0)
@@ -94,6 +97,7 @@ func InitMenu() {
 	fmt.Println("4. Add member to project")
 	fmt.Println("5. Update project")
 	fmt.Println("6. Delete project")
-	fmt.Println("7. Exit")
-	fmt.Println("Please select one option: ")
+	fmt.Println("7. Generate project report")
+	fmt.Println("0. Exit")
+	fmt.Print("Please select one option: ")
 }
